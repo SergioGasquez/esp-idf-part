@@ -5,7 +5,7 @@ type Vec<T> = heapless::Vec<T, { crate::MD5_NUM_MAGIC_BYTES }>;
 
 /// Partition table errors
 #[derive(Debug)]
-#[cfg_attr(feature = "std", derive(thiserror::Error))]
+#[cfg_attr(feature = "std", derive(thiserror::Error, miette::Diagnostic))]
 pub enum Error {
     /// Two or more partitions with the same name were found
     #[cfg_attr(
